@@ -11,7 +11,7 @@ services:
     volumes:
     # - ./www:/usr/share/nginx/html
     - ./www:/var/www/html
-    - ./libs:/var/www/libs
+    # - ./libs:/var/www/libs
 
 
     # command:

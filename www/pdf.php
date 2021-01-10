@@ -1,9 +1,9 @@
 <?php
-require_once('..' . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . "fpdf182" . DIRECTORY_SEPARATOR . "fpdf.php");
-require_once('..' . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . "phpqrcode" . DIRECTORY_SEPARATOR . "qrlib.php");
+require_once(__DIR__ . DIRECTORY_SEPARATOR .'common.php');
+require_once(__DIR__ . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . "fpdf182" . DIRECTORY_SEPARATOR . "fpdf.php");
+require_once(__DIR__ . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . "phpqrcode" . DIRECTORY_SEPARATOR . "qrlib.php");
+require_once(__DIR__ . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');;
 
-require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-require __DIR__ . DIRECTORY_SEPARATOR .'common.php';
 
 
 function pdf_init(){

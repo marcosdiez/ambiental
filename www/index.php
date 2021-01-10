@@ -19,10 +19,9 @@ a:link {
 <body>
 <?php
 // printf("<pre>");
-require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-require __DIR__ . DIRECTORY_SEPARATOR .'common.php';
-
-
+$x=__DIR__ . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+require_once(__DIR__ . DIRECTORY_SEPARATOR .'common.php');
+require_once(__DIR__ . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
 
 function print_row($headers, $row){
     printf("Informações de Reflorestamento\n<hr><style>    a:link {        ext-decoration: none;      }    </style>");
