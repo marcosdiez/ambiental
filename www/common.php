@@ -31,10 +31,10 @@ function get_target_file_or_die($project){
     if(file_exists($target_file)){
         return $target_file;
     }
-    die(sprintf($error_project_does_not_exist, $project_folder));
+    die(sprintf($error_project_does_not_exist, $target_file));
 }
 
-function get_xlsx($project, $id){
+function get_xlsx($project){
     global $id_not_found_in_project;
     $target_file = get_target_file_or_die($project);
     $xlsx = SimpleXLSX::parse($target_file);

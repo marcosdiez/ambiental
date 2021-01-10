@@ -19,8 +19,8 @@ a:link {
 <body>
 <?php
 // printf("<pre>");
-require __DIR__ . '/../libs/vendor/autoload.php';
-require __DIR__ . '/common.php';
+require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'libs' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+require __DIR__ . DIRECTORY_SEPARATOR .'common.php';
 
 
 
@@ -44,7 +44,7 @@ function print_row($headers, $row){
 }
 
 function show_data($project, $id){
-    $xlsx = get_xlsx($project, $id);
+    $xlsx = get_xlsx($project);
     $first = true;
     foreach( $xlsx->rows() as $row ) {
         if($first){
