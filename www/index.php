@@ -20,32 +20,9 @@ a:link {
 <?php
 // printf("<pre>");
 require __DIR__ . '/../libs/vendor/autoload.php';
+require __DIR__ . '/common.php';
 
-$project_folder = "projetos" . DIRECTORY_SEPARATOR;
-$extension = ".xlsx";
-$error_project_does_not_exist = "Erro, o projeto [%s] não existe";
-$invalid_file_content = "Error lendo o arquivo [%s]";
-$id_not_found_in_project = "Erro: id [%s] não encontrado em [%s]";
 
-function get_target_file_or_die($project){
-    global $project_folder;
-    global $extension;
-    global $error_project_does_not_exist;
-    $target_file = $project_folder . $project . $extension;
-    if(file_exists($target_file)){
-        return $target_file;
-    }
-    die(sprintf($error_project_does_not_exist, $project_folder));
-}
-
-function title_to_dict($row){
-    $counter = 0;
-    $result = [];
-    foreach( $row as $cell ){
-        $result[$cell] = $counter++;
-    }
-    return $result;
-}
 
 function print_row($headers, $row){
     printf("Informações de Reflorestamento\n<hr><style>    a:link {        ext-decoration: none;      }    </style>");
@@ -67,14 +44,7 @@ function print_row($headers, $row){
 }
 
 function show_data($project, $id){
-    global $id_not_found_in_project;
-    $target_file = get_target_file_or_die($project);
-    $xlsx = SimpleXLSX::parse($target_file);
-    if(!$xlsx){
-        echo SimpleXLSX::parseError();
-        die(sprintf($invalid_file_content, $target_file));
-    }
-
+    $xlsx = get_xlsx($project, $id);
     $first = true;
     foreach( $xlsx->rows() as $row ) {
         if($first){
@@ -91,8 +61,6 @@ function show_data($project, $id){
     printf($id_not_found_in_project, $id, $project);
 }
 
-
-$target_folder="projetos";
 if(isset($_GET["q"])){
     $q = explode("/", $_GET["q"]);
     show_data($q[0], $q[1]);
