@@ -1,0 +1,17 @@
+# sudo docker run --name nginx -p 8080:80 -v /your_code_directory:/usr/share/nginx/html -d richarvey/nginx-php-fpm
+
+version: '2'
+services:
+  nginx_php:
+    ports:
+    - "80:80"
+    image: wyveo/nginx-php-fpm
+    # image: richarvey/nginx-php-fpm
+    volumes:
+    - ./www:/usr/share/nginx/html
+    # command:
+    # - /etc/extra/c360.sh
+    # entrypoint:
+    # - /usr/bin/dumb-init
+    # environment:
+    # - PARCEL_ENV=${DEPLOY_TARGET}    
