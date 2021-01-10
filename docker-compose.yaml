@@ -5,13 +5,18 @@ services:
   nginx_php:
     ports:
     - "80:80"
-    image: wyveo/nginx-php-fpm
+    # image: wyveo/nginx-php-fpm
+    image: vutran/docker-nginx-php5-fpm
     # image: richarvey/nginx-php-fpm
     volumes:
-    - ./www:/usr/share/nginx/html
+    # - ./www:/usr/share/nginx/html
+    - ./www:/var/www/html
+    - ./libs:/var/www/libs
+
+
     # command:
     # - /etc/extra/c360.sh
     # entrypoint:
     # - /usr/bin/dumb-init
     # environment:
-    # - PARCEL_ENV=${DEPLOY_TARGET}    
+    # - PARCEL_ENV=${DEPLOY_TARGET}
